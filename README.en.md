@@ -42,6 +42,12 @@ dsh plugin --profile web add github:Wenjin-111/dsh-vision
 
 Restart `dsh web`. You'll see the "auto image understanding" entry in the model picker, or tweak settings live under **Settings → Plugins → Plugin configuration → Vision Router**. The built-in free vision model works out of the box — no signup, no key.
 
+### Uninstall
+
+```bash
+dsh plugin --profile web remove dsh-vision
+```
+
 ### Optional: bring your own vision model
 
 Merge any snippet from `presets/` into `$DSH_HOME/settings.yaml` (fill in the key referenced by its `apiKeyEnv`), then pick it in the "Vision chain" dropdown. See [presets/README.md](presets/README.md).

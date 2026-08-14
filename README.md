@@ -42,6 +42,12 @@ dsh plugin --profile web add github:Wenjin-111/dsh-vision
 
 安装后重启 `dsh web`，即可在模型选择器里看到「自动识图」入口，或在 **设置 → 插件 → 插件配置 → 视觉路由** 里实时调整配置。默认即用内置免费视觉模型，无需任何注册或 Key。
 
+### 卸载
+
+```bash
+dsh plugin --profile web remove dsh-vision
+```
+
 ### 可选：接入自己的视觉模型
 
 把 `presets/` 下的任一片段合并进 `$DSH_HOME/settings.yaml`（填一个 `apiKeyEnv` 对应的 Key），然后在视觉路由卡片的「视觉模型链」里选中它即可。详见 [presets/README.md](presets/README.md)。
