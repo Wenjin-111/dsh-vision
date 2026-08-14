@@ -1,6 +1,6 @@
 # dsh-vision-router bundle layer: applied automatically when the package is
 # installed (package.json declares dsh.bundle.patch), i.e. a profile that
-# runs `dsh plugin add github:ysr666/dsh-vision-router` gets this wiring
+# runs `dsh plugin add github:Wenjin-111/DSH-Vision` gets this wiring
 # without any manual cordis.patch.yml edits. Later layers (the profile's own
 # cordis.patch.yml, --patch overlays) override these rows by id.
 
