@@ -37,7 +37,7 @@ One-command install · No signup · No API key · No Python
 ## Quick start
 
 ```bash
-dsh plugin add github:Wenjin-111/DSH-Vision
+dsh plugin --profile web add github:Wenjin-111/dsh-vision
 ```
 
 Restart `dsh web`. You'll see the "auto image understanding" entry in the model picker, or tweak settings live under **Settings → Plugins → Plugin configuration → Vision Router**. The built-in free vision model works out of the box — no signup, no key.

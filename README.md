@@ -37,7 +37,7 @@
 ## 快速开始
 
 ```bash
-dsh plugin add github:Wenjin-111/DSH-Vision
+dsh plugin --profile web add github:Wenjin-111/dsh-vision
 ```
 
 安装后重启 `dsh web`，即可在模型选择器里看到「自动识图」入口，或在 **设置 → 插件 → 插件配置 → 视觉路由** 里实时调整配置。默认即用内置免费视觉模型，无需任何注册或 Key。

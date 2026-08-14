@@ -24,7 +24,7 @@
     <g transform="translate(145,0)"><rect width="132" height="39" rx="12" fill="#111526" stroke="#252B42"/><circle cx="18" cy="19.5" r="4" fill="#7B6DFF"/><text x="31" y="25">自动路由</text></g>
     <g transform="translate(290,0)"><rect width="132" height="39" rx="12" fill="#111526" stroke="#252B42"/><circle cx="18" cy="19.5" r="4" fill="#4CD5FF"/><text x="31" y="25">像素循环</text></g>
   </g>
-  <g transform="translate(2,438)"><path d="M0 0 H422" stroke="#252A3C"/><text x="0" y="38" fill="#666F85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">github.com/Wenjin-111/DSH-Vision</text></g>
+  <g transform="translate(2,438)"><path d="M0 0 H422" stroke="#252A3C"/><text x="0" y="38" fill="#666F85" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">github.com/Wenjin-111/dsh-vision</text></g>
 </g>
 <g>
   <rect x="760" y="64" width="760" height="510" rx="34" fill="#0C0F1C" fill-opacity=".45" stroke="#252B40" stroke-opacity=".72"/><rect x="780" y="84" width="720" height="470" rx="26" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/>
