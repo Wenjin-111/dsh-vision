@@ -1,0 +1,66 @@
+{
+  "name": "dsh-vision-router",
+  "version": "0.2.0",
+  "description": "DeepSeek Harness plugin: turn-level vision routing with provider fallback chains, a cached vision_describe tool with JSON output and image downscaling, and optional per-host proxy support.",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "LICENSE",
+    "README.en.md",
+    "README.md",
+    "cordis.patch.yml",
+    "docs",
+    "index.js",
+    "lib",
+    "presets"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.20.0",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "vision",
+    "multimodal",
+    "openrouter",
+    "image",
+    "plugin"
+  ],
+  "dependencies": {
+    "@deepseek-ai/schemastery": ">=3.18.0",
+    "potrace": "^2.1.8",
+    "puppeteer-core": "^25.6.0",
+    "sharp": "^0.34.0",
+    "undici": ">=6.15.0",
+    "@deepseek-ai/dsh-llm-deepseek": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-anonymous-user-id": "^0.1.0-rc.6"
+  },
+  "scripts": {
+    "test": "node --test tests/core.test.js tests/client.test.js"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-runtime"
+      ]
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
