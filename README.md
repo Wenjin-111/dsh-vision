@@ -1,8 +1,8 @@
-# dsh-vision-router
+# dsh-vision
 
 给 DeepSeek 一双眼，而不是换一个大脑。
 
-`dsh-vision-router` 是 [DeepSeek Harness（DSH）](https://github.com/deepseek-ai) 的视觉路由插件：把对话里**带图的轮次**路由到视觉模型（带原始像素访问），**纯文字轮次**仍走会话自己的模型。内置一条免注册、免 Key 的免费视觉链路，带自动故障切换，并附带一套像素级视觉工具（看图问答、定位、裁剪、像素对比、取色、OCR、矢量化、抠图、页面截图）。
+`dsh-vision` 是 [DeepSeek Harness（DSH）](https://github.com/deepseek-ai) 的视觉路由插件：把对话里**带图的轮次**路由到视觉模型（带原始像素访问），**纯文字轮次**仍走会话自己的模型。内置一条免注册、免 Key 的免费视觉链路，带自动故障切换，并附带一套像素级视觉工具（看图问答、定位、裁剪、像素对比、取色、OCR、矢量化、抠图、页面截图）。
 
 一条命令安装 · 无需注册 · 无需 API Key · 无需 Python
 
@@ -30,7 +30,7 @@
 3. 包装器 / 隐身路由把图片轮交给视觉模型（agent / pre-step），纯文字轮仍走 `deepseek-official`。
 4. DeepSeek 作为「大脑」完成完整 Agent 回合（推理 · 工具 · 回答）。
 5. 需要看图时调用 `vision_describe` 及其同类工具，经免费端点 / 回退提供方（429 退避）得到文本结论。
-6. 产物与图像记忆写入 `.dsh-vision-router/artifacts`，描述进缓存。
+6. 产物与图像记忆写入 `.dsh-vision/artifacts`，描述进缓存。
 
 > ◉ 视觉模型 = 眼睛　✦ DeepSeek = 大脑
 
@@ -64,7 +64,7 @@ dsh plugin add github:Wenjin-111/DSH-Vision
 | `cache` / `cacheTtlSeconds` / `cacheMaxEntries` | `true` / `3600` / `200` | 视觉答案缓存（TTL / LRU 容量） |
 | `timeoutMs` | `120000` | 单个视觉请求超时 |
 | `proxy` / `proxyHosts` | `''` / 默认域名表 | 代理地址与「仅走代理的域名」 |
-| `artifactsDir` | `.dsh-vision-router/artifacts` | 视觉工具产物目录 |
+| `artifactsDir` | `.dsh-vision/artifacts` | 视觉工具产物目录 |
 | `freeFallback` | `true` | 未显式配置 `httpProviders` 时启用内置免 Key 免费端点兜底 |
 
 > 说明：默认关闭 `routing`，图片轮不会整轮切到视觉模型，而是由会话模型调用视觉工具看图，可连续多步操作（定位 → 裁剪 → 对比 …）。开启后恢复旧的整轮一次性自动识图行为，此时降级链只包含视觉模型链里的 provider+fallbacks，`httpProviders`（含免费兜底）不参与。

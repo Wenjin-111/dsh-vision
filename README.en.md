@@ -1,8 +1,8 @@
-# dsh-vision-router
+# dsh-vision
 
 Give DeepSeek eyes, not a different brain.
 
-`dsh-vision-router` is a vision-routing plugin for [DeepSeek Harness (DSH)](https://github.com/deepseek-ai): turns that contain an image run on a vision model (with raw pixel access), while plain-text turns keep the session's own model. It ships with a built-in free, keyless vision chain with automatic failover, plus a set of pixel-level vision tools (image Q&A, grounding, crop, pixel diff, color extraction, OCR, vectorization, background removal, page screenshots).
+`dsh-vision` is a vision-routing plugin for [DeepSeek Harness (DSH)](https://github.com/deepseek-ai): turns that contain an image run on a vision model (with raw pixel access), while plain-text turns keep the session's own model. It ships with a built-in free, keyless vision chain with automatic failover, plus a set of pixel-level vision tools (image Q&A, grounding, crop, pixel diff, color extraction, OCR, vectorization, background removal, page screenshots).
 
 One-command install · No signup · No API key · No Python
 
@@ -30,7 +30,7 @@ One-command install · No signup · No API key · No Python
 3. The wrapper / stealth route hands the image turn to the vision model (agent / pre-step); text turns still go through `deepseek-official`.
 4. DeepSeek, the "brain", runs a full agent turn (reasoning · tools · answering).
 5. When the model needs to look at an image it calls `vision_describe` and friends, through the free endpoint / fallback providers (with 429 backoff).
-6. Artifacts and image memory land in `.dsh-vision-router/artifacts`; descriptions are cached.
+6. Artifacts and image memory land in `.dsh-vision/artifacts`; descriptions are cached.
 
 > ◉ Vision model = the eyes　✦ DeepSeek = the brain
 
@@ -64,7 +64,7 @@ Everything is editable in the web settings card (some under "Advanced settings")
 | `cache` / `cacheTtlSeconds` / `cacheMaxEntries` | `true` / `3600` / `200` | Vision answer cache (TTL / LRU capacity) |
 | `timeoutMs` | `120000` | Per vision-call deadline |
 | `proxy` / `proxyHosts` | `''` / default host list | Proxy URL and the hosts that go through it |
-| `artifactsDir` | `.dsh-vision-router/artifacts` | Directory for vision-tool artifacts |
+| `artifactsDir` | `.dsh-vision/artifacts` | Directory for vision-tool artifacts |
 | `freeFallback` | `true` | Enable the built-in keyless free endpoint when `httpProviders` are not explicitly configured |
 
 > Note: `routing` is off by default — image turns are not switched wholesale to the vision model; instead the session model looks through `vision_describe` and friends like any tool call, enabling continuous multi-step work (ground → crop → diff → …). Turning it on restores the legacy one-shot whole-turn behavior; the fallback chain then contains only the vision chain's provider+fallbacks, and `httpProviders` (including the free fallback) do not participate.
